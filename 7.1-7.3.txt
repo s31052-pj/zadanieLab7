@@ -1,0 +1,109 @@
+7.1
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int liczbaOsob = 3;
+
+struct Osoba {
+    string imie;
+    string nazwisko;
+};
+
+int main() {
+    Osoba daneOsob[liczbaOsob];
+
+    for (int i = 0; i < liczbaOsob; ++i) {
+        cout << "Podaj imie osoby nr " << i + 1 << ": ";
+        cin >> daneOsob[i].imie;
+
+        cout << "Podaj nazwisko osoby nr " << i + 1 << ": ";
+        cin >> daneOsob[i].nazwisko;
+    }
+
+    cout << "\nImiona i nazwiska trzech osob:\n";
+    for (int i = 0; i < liczbaOsob; ++i) {
+        cout << "Osoba nr " << i + 1 << ": " << daneOsob[i].imie << " " << daneOsob[i].nazwisko << endl;
+    }
+
+	system("pause");
+
+    return 0;
+}
+
+7.2
+#include <iostream>
+using namespace std;
+
+unsigned long long int silnia(int n){
+    if (n == 0 || n == 1){
+        return 1;
+    }
+	else{
+        return n * silnia(n - 1);
+    }
+}
+
+int main() {
+    int liczba;
+    cout << "Podaj liczbe: ";
+    cin >> liczba;
+
+	unsigned long long int wynikSilni = silnia(liczba);
+    cout << "Silinia 11 wynosi " << wynikSilni << endl;
+
+	cout << "Wynik jest podzielny przez: " << endl;
+    if (wynikSilni % 2 == 0) {
+        cout << "2" << endl;
+    }
+    if (wynikSilni % 3 == 0) {
+        cout << "3" << endl;
+    }
+    if (wynikSilni % 5 == 0) {
+        cout << "5" << endl;
+    }
+    if (wynikSilni % 11 == 0) {
+        cout << "11" << endl;
+    }
+
+	system("pause");
+
+    return 0;
+}
+
+7.3
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+const int rozmiar = 10;
+
+int main() {
+    double promien;
+    cout << "Podaj dlugosc promienia kola: ";
+    cin >> promien;
+
+    double poleKola = M_PI * promien * promien;
+	cout << "Pole kola wynosi: " << poleKola << endl;
+
+    double tablica[rozmiar][rozmiar];
+
+    for (int i = 0; i < rozmiar; ++i) {
+        for (int j = 0; j < rozmiar; ++j) {
+            tablica[i][j] = poleKola;
+            poleKola += 3;
+        }
+    }
+
+    cout << "\nTablica dwuwymiarowa z wartosciami pola kola:" << endl;
+    for (int i = 0; i < rozmiar; ++i) {
+        for (int j = 0; j < rozmiar; ++j) {
+            cout << tablica[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+	system("pause");
+
+    return 0;
+}
